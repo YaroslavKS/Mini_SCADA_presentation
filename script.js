@@ -27,7 +27,7 @@ function createChart(ctx, label, borderColor, suggestedMax) {
         fill: false,
         pointRadius: 3,
         pointHoverRadius: 6,
-        pointBackgroundColor: [] 
+        pointBackgroundColor: []
       }]
     },
     options: {
@@ -94,6 +94,10 @@ function update() {
   }
   tempChart.update();
 
+  const tempData = tempChart.data.datasets[0].data;
+  const avgTemp = tempData.length ? tempData.reduce((sum, val) => sum + val, 0) / tempData.length : 0;
+  document.getElementById("avg-temp").textContent = avgTemp.toFixed(1);
+
   pressureChart.data.labels.push(time);
   pressureChart.data.datasets[0].data.push(pressure);
   pressureChart.data.datasets[0].pointBackgroundColor.push(
@@ -105,6 +109,10 @@ function update() {
     pressureChart.data.datasets[0].pointBackgroundColor.shift();
   }
   pressureChart.update();
+
+  const pressureData = pressureChart.data.datasets[0].data;
+  const avgPressure = pressureData.length ? pressureData.reduce((sum, val) => sum + val, 0) / pressureData.length : 0;
+  document.getElementById("avg-pressure").textContent = avgPressure.toFixed(1);
 
   speedChart.data.labels.push(time);
   speedChart.data.datasets[0].data.push(speed);
@@ -118,8 +126,11 @@ function update() {
   }
   speedChart.update();
 
-  updateDiagram(temp, pressure, speed);
+  const speedData = speedChart.data.datasets[0].data;
+  const avgSpeed = speedData.length ? speedData.reduce((sum, val) => sum + val, 0) / speedData.length : 0;
+  document.getElementById("avg-speed").textContent = avgSpeed.toFixed(1);
 
+  updateDiagram(temp, pressure, speed);
 }
 
 function updateDiagram(temp, pressure, speed) {
@@ -136,6 +147,5 @@ function updateDiagram(temp, pressure, speed) {
   setStatus(pressureStatus, pressure < 220 || pressure > 380);
   setStatus(speedStatus, speed < 1200 || speed > 2800);
 }
-
 
 setInterval(update, 2000);
