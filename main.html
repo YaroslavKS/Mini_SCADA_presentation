@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini SCADA - Boiler System</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <h1>Mini SCADA Turbine Monitor</h1>
+
+  <div class="system-diagram">
+    <div class="component boiler">
+      🔥 Boiler
+      <div class="sensor">
+        Temp Sensor
+        <div id="sensor-temp-status" class="status">--</div>
+      </div>
+    </div>
+
+    <div class="pipe">
+      <div class="flow-animation"></div>
+    </div>
+
+    <div class="component turbine">
+      ⚙️ Turbine
+      <div class="sensor">
+        Speed Sensor
+        <div id="sensor-speed-status" class="status">--</div>
+      </div>
+      <div class="sensor">
+        Pressure Sensor
+        <div id="sensor-pressure-status" class="status">--</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboards-row">
+    <div class="dashboard">
+      <div class="status-panel">
+        <p><strong>Temperature:</strong> <span id="temperature">--</span> °C</p>
+        <!-- <p><strong>Status:</strong> <span class="status">Initializing...</span></p> -->
+      </div>
+      <canvas id="chart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="dashboard">
+      <div class="status-panel">
+        <p><strong>Pressure:</strong> <span id="pressure">--</span> kPa</p>
+        <!-- <p><strong>Status:</strong> <span class="status">Initializing...</span></p> -->
+      </div>
+      <canvas id="chart2" width="400" height="200"></canvas>
+    </div>
+
+    <div class="dashboard">
+      <div class="status-panel">
+        <p><strong>Turbine Speed:</strong> <span id="speed">--</span> RPM</p>
+        <!-- <p><strong>Status:</strong> <span class="status">Initializing...</span></p> -->
+      </div>
+      <canvas id="chart3" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

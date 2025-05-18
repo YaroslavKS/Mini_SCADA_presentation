@@ -1,0 +1,110 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #0d1117;
+  color: #f0f4f8;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #58a6ff;
+}
+
+.system-diagram {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.component {
+  padding: 15px;
+  background-color: #161b22;
+  border-radius: 10px;
+  border: 2px solid #58a6ff;
+  min-width: 120px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  color: #f0f4f8;
+}
+
+.pipe {
+  width: 100px;
+  height: 30px;
+  background: #333;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.flow-animation {
+  height: 100%;
+  width: 200%;
+  background: repeating-linear-gradient(
+    90deg,
+    #00ff99 0 10px,
+    transparent 10px 20px
+  );
+  animation: flow 1s linear infinite;
+}
+
+@keyframes flow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-20px); }
+}
+
+.sensor {
+  text-align: center;
+  padding: 6px;
+  margin-top: 10px;
+  border: 1px dashed #58a6ff;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #f0f4f8;
+}
+
+.sensor .status {
+  margin-top: 5px;
+  font-weight: bold;
+  color: lightgreen;
+}
+
+.sensor .status.warning {
+  color: red;
+}
+
+.dashboards-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.status-panel {
+  background-color: #161b22;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #58a6ff;
+  width: 300px;
+  color: #f0f4f8;
+}
+
+canvas {
+  background-color: #0d1117;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #58a6ff;
+}
