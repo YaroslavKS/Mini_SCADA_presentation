@@ -132,6 +132,10 @@ function updateDiagram(temp, pressure, speed) {
     el.classList.toggle("warning", isWarning);
   }
 
+  setStatus(tempStatus, temp < 125 || temp > 195);
+  setStatus(pressureStatus, pressure < 220 || pressure > 380);
+  setStatus(speedStatus, speed < 1200 || speed > 2800);
 }
+
 
 setInterval(update, 2000);
